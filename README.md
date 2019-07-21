@@ -8,6 +8,13 @@ source ${BAGNOSTER_THEME}
 ```
 Insert that line into your `.bashrc`, where `${BAGNOSTER_THEME}` is the full path to `bagnoster.bash`.
 
+Ensure the powerline console theme is installed. This theme is capable of working without it if you explicitly override the defined powerline characters with an empty string. If the following lines are inserted _after_ sourcing the theme, it will disable them entirely.
+
+```bash
+_POWERLINE_ARROW=""
+_POWERLINE_BRANCH=""
+```
+
 ### Features
 
 * Powerline font if on a desktop terminal emulator
@@ -20,6 +27,7 @@ Insert that line into your `.bashrc`, where `${BAGNOSTER_THEME}` is the full pat
 
 Feature requests are welcome, but are likely to get shot down for the sake of script size, complexity, and speed.
 ![screenshot](example.jpg)
+
 ### Goals
 
 This is intended to be a small, lightweight theme that is targeted towards squeezing functionality into a small area of space.

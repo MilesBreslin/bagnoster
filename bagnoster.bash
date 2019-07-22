@@ -17,7 +17,7 @@ _prompt() {
     if ! git rev-parse --is-inside-work-tree >/dev/null 2>/dev/null; then       # Is Not Git Directory
         PS1="\[\033[${path_color};30m\] $path_rep \[\033[0;$((path_color-10))m\]$_POWERLINE_ARROW\[\033[0m\] "    # Make it all a string
     else
-        local git_branch="$(basename $(git symbolic-ref HEAD 2>/dev/null))"
+        local git_branch="$(basename "$(git symbolic-ref HEAD 2>/dev/null)")"
         local git_color=43
         [ -z "$(git status -s 2> /dev/null)" ] && git_color=42                  # Is clean working tree
         PS1="\[\033[${path_color};30m\] $path_rep \[\033[${git_color};$((path_color-10))m\]$_POWERLINE_ARROW\[\033[${git_color};30m\] $_POWERLINE_BRANCH$git_branch \[\033[0;$((git_color-10))m\]$_POWERLINE_ARROW\[\033[0m\] "    # Make it all a string, relying on \w for directory

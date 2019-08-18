@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$TERM" != "linux" ]; then
     export _POWERLINE_ARROW=""
@@ -23,6 +23,8 @@ _prompt() {
         PS1="\[\033[${path_color};30m\] $path_rep \[\033[${Git_color};$((path_color-10))m\]$_POWERLINE_ARROW\[\033[${Git_color};30m\] $_POWERLINE_BRANCH$Git_branch \[\033[0;$((Git_color-10))m\]$_POWERLINE_ARROW\[\033[0m\] "    # Make it all a string, relying on \w for directory
     fi
     ((COLUMNS < 50)) && PS1="$PS1"$'\n'
+    history -a
+    history -n
 }
 
 PROMPT_COMMAND=_prompt

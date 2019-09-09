@@ -35,3 +35,8 @@ This is intended to be a small, lightweight theme that is targeted towards squee
 ### License
 
 This is script is provided under the MIT License. See the `LICENSE` file for more details.
+
+### Acknowledgements
+
+Thanks to serverfault.com user Dennis Williamson for the new line prompt detection.
+Thanks to the agnoster-zsh-theme devs for the great theme base.

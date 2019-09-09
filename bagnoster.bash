@@ -25,6 +25,12 @@ _prompt() {
     ((COLUMNS < 50)) && PS1="$PS1"$'\n'
     history -a
     history -n
+
+    unset PROMPT_SP                                                             # Detect whether or not the command has a new line ending
+    for ((i = 1; i<= $COLUMNS + 52; i++ )); do
+        PROMPT_SP+=' ';
+    done                                                                        # Credit to Dennis Williamson on serverfault.com
+    PS1='\[\e[7m%\e[m\]${PROMPT_SP: -$COLUMNS+1}\015'"$PS1"
 }
 
 PROMPT_COMMAND=_prompt

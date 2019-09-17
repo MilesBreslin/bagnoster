@@ -47,7 +47,9 @@ _zsh_newline() {
 
 _pre_hostname() {
     local hostname_color=47
-    PS1="\[\033[${hostname_color};30m\] $(</etc/hostname) \[\033[${path_color};$((hostname_color-10))m\]$_POWERLINE_ARROW$PS1"
+    local hostname="$(</etc/hostname)"
+    local hostname="${hostname/.*}"
+    PS1="\[\033[${hostname_color};30m\] $hostname \[\033[${path_color};$((hostname_color-10))m\]$_POWERLINE_ARROW$PS1"
 }
 
 _prompt() {

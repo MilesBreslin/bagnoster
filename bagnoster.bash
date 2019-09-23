@@ -56,7 +56,7 @@ _prompt() {
     local path_color="$(_get_prompt_color)"
     _base_prompt
     _reload_history
-    if [ -n "$SSH_CONNECTION" ] || [ -n "$TMUX" ]; then
+    if [ -n "$SSH_CONNECTION" ] || [ -n "$TMUX" ] || [ -n "$SUDO_COMMAND" ]; then
         _pre_hostname
     fi
     _pre_newline

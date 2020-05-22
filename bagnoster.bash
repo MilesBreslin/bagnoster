@@ -8,8 +8,8 @@ fi
 _get_prompt_color() {
     local ERR="$?"
     local path_color=44                                                         # Default Blue
-    [ "$ERR" != "0" ] && path_color=41                                          # Command Retuned error? Then Red
     [ "$(id -u)" == "0" ] && path_color=45                                      # Is Root? Then White
+    [ "$ERR" != "0" ] && path_color=41                                          # Command Retuned error? Then Red
     echo "$path_color"
 }
 

@@ -75,8 +75,13 @@ _zsh_newline() {
 _pre_hostname() {
     ((PROMPT_SIZE>=2)) || return 0;
     local hostname_color=47
-    local hostname="$(</proc/sys/kernel/hostname)"
-    local hostname="${hostname/.*}"
+    local hostname
+    if [[ -n "${BASH_HOSTNAME:+x}" ]] ; then
+        hostname="$BASH_HOSTNAME"
+    else
+        hostname="$(</proc/sys/kernel/hostname)"
+        hostname="${hostname/.*}"
+    fi
     _append_to_prompt 47 30 "$hostname"
 }
 
